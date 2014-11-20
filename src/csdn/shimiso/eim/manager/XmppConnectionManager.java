@@ -51,7 +51,7 @@ public class XmppConnectionManager {
 		return xmppConnectionManager;
 	}
 
-	// init
+	// 登录初始化
 	public XMPPConnection init(LoginConfig loginConfig) {
 		Connection.DEBUG_ENABLED = false;
 		ProviderManager pm = ProviderManager.getInstance();

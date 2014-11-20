@@ -81,28 +81,28 @@ public abstract class AChatActivity extends ActivitySupport {
 				// receiveNewMessage(message);
 				refreshMessage(message_pool);
 
-				// TODO: 这个地方开始震动和语音提示 by alan 2014年11月16日
-				Vibrator vibrator = (Vibrator) getSystemService(VIBRATOR_SERVICE);
-				String con = message.getContent();
-				if (con.equals("1"))
-					vibrator.vibrate(new long[] { 100, 200 }, -1);
-				else if (con.equals("2"))
-					vibrator.vibrate(new long[] { 100, 200, 100, 200 }, -1);
-				else if (con.equals("3"))
-					vibrator.vibrate(
-							new long[] { 100, 200, 100, 200, 100, 200 }, -1);
-				else if (con.equals("4"))
-					vibrator.vibrate(new long[] { 100, 200, 100, 200, 100, 200,
-							100, 200 }, -1);
-				else if (con.equals("5"))
-					vibrator.vibrate(new long[] { 100, 200, 100, 200, 100, 200,
-							100, 200, 100, 200 }, -1);
-				else if (con.equals("6"))
-					vibrator.vibrate(new long[] { 100, 200, 100, 200, 100, 200,
-							100, 200, 100, 200, 100, 200 }, -1);
-				else {
-
-				}
+//				// TODO: 这个地方开始震动和语音提示 by alan 2014年11月16日
+//				Vibrator vibrator = (Vibrator) getSystemService(VIBRATOR_SERVICE);
+//				String con = message.getContent();
+//				if (con.equals("1"))
+//					vibrator.vibrate(new long[] { 150, 200 }, -1);
+//				else if (con.equals("2"))
+//					vibrator.vibrate(new long[] { 150, 200, 150, 200 }, -1);
+//				else if (con.equals("3"))
+//					vibrator.vibrate(
+//							new long[] { 150, 200, 150, 200, 150, 200 }, -1);
+//				else if (con.equals("4"))
+//					vibrator.vibrate(new long[] { 150, 200, 150, 200, 150, 200,
+//							150, 200 }, -1);
+//				else if (con.equals("5"))
+//					vibrator.vibrate(new long[] { 150, 200, 150, 200, 150, 200,
+//							150, 200, 150, 200 }, -1);
+//				else if (con.equals("6"))
+//					vibrator.vibrate(new long[] { 150, 200, 150, 200, 150, 200,
+//							150, 200, 150, 200, 150, 200 }, -1);
+//				else {
+//
+//				}
 
 			}
 		}

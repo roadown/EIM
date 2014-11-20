@@ -15,6 +15,7 @@ import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
 import android.os.IBinder;
+import android.os.Vibrator;
 import csdn.shimiso.eim.R;
 import csdn.shimiso.eim.activity.im.ChatActivity;
 import csdn.shimiso.eim.comm.Constant;
@@ -111,12 +112,34 @@ public class IMChatService extends Service {
 
 				if (noticeId != -1) {
 					Intent intent = new Intent(Constant.NEW_MESSAGE_ACTION);
-					intent.putExtra(IMMessage.IMMESSAGE_KEY, msg);
+					intent.putExtra(IMMessage.IMMESSAGE_KEY, msg);//终于找对地方了  by alan  
 					intent.putExtra("notice", notice);
-					sendBroadcast(intent);
-					setNotiType(R.drawable.icon,
-							getResources().getString(R.string.new_message),
-							notice.getContent(), ChatActivity.class, from);
+					sendBroadcast(intent);//by alan 这里发出新消息的广播
+//					setNotiType(R.drawable.icon,
+//							getResources().getString(R.string.new_message),
+//							notice.getContent(), ChatActivity.class, from);
+					// TODO: 这个地方开始震动和语音提示 by alan 2014年11月16日
+					Vibrator vibrator = (Vibrator) getSystemService(VIBRATOR_SERVICE);
+					String con = msg.getContent();
+					if (con.equals("1"))
+						vibrator.vibrate(new long[] { 150, 200 }, -1);
+					else if (con.equals("2"))
+						vibrator.vibrate(new long[] { 150, 200, 150, 200 }, -1);
+					else if (con.equals("3"))
+						vibrator.vibrate(
+								new long[] { 150, 200, 150, 200, 150, 200 }, -1);
+					else if (con.equals("4"))
+						vibrator.vibrate(new long[] { 150, 200, 150, 200, 150, 200,
+								150, 200 }, -1);
+					else if (con.equals("5"))
+						vibrator.vibrate(new long[] { 150, 200, 150, 200, 150, 200,
+								150, 200, 150, 200 }, -1);
+					else if (con.equals("6"))
+						vibrator.vibrate(new long[] { 150, 200, 150, 200, 150, 200,
+								150, 200, 150, 200, 150, 200 }, -1);
+					else {
+
+					}
 
 				}
 

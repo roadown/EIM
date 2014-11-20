@@ -131,6 +131,7 @@ public class LoginActivity extends ActivitySupport {
 	}
 
 	@Override
+	//主页面菜单键
 	public boolean onOptionsItemSelected(MenuItem item) {
 		final EditText xmppHostText = new EditText(context);
 		xmppHostText.setText(loginConfig.getXmppHost());

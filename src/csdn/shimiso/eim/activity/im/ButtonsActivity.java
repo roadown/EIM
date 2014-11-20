@@ -72,8 +72,6 @@ public class ButtonsActivity extends AChatActivity {
 		btn5.setOnClickListener(mViewClickListener);
 		Button btn6 = (Button) findViewById(R.id.btn6);
 		btn6.setOnClickListener(mViewClickListener);
-		
-
 
 	}
 
@@ -84,6 +82,7 @@ public class ButtonsActivity extends AChatActivity {
 			Vibrator vibrator = (Vibrator) getSystemService(VIBRATOR_SERVICE);
 			// long[] pattern = { 100, 400 };
 			boolean vibrator_open = true;
+			boolean audio_open = false;
 
 			int id = v.getId();
 			switch (id) {
@@ -94,9 +93,9 @@ public class ButtonsActivity extends AChatActivity {
 					showToast("信息发送失败");
 				}
 				if (vibrator_open)
-					vibrator.vibrate(new long[] { 100, 200 }, -1);
-				
-				play(R.raw.audio1);
+					vibrator.vibrate(new long[] { 150, 200 }, -1);
+				if (audio_open)
+					play(R.raw.audio1);
 				break;
 			case R.id.btn2:
 				// m.setBody("2");
@@ -107,9 +106,9 @@ public class ButtonsActivity extends AChatActivity {
 					showToast("信息发送失败");
 				}
 				if (vibrator_open)
-					vibrator.vibrate(new long[] { 100, 200, 100, 200 }, -1);
-				
-				play(R.raw.audio2);
+					vibrator.vibrate(new long[] { 150, 200, 150, 200 }, -1);
+				if (audio_open)
+					play(R.raw.audio2);
 				break;
 			case R.id.btn3:
 				// m.setBody("3");
@@ -121,9 +120,9 @@ public class ButtonsActivity extends AChatActivity {
 				}
 				if (vibrator_open)
 					vibrator.vibrate(
-							new long[] { 100, 200, 100, 200, 100, 200 }, -1);
-				
-				play(R.raw.audio3);
+							new long[] { 150, 200, 150, 200, 150, 200 }, -1);
+				if (audio_open)
+					play(R.raw.audio3);
 				break;
 			case R.id.btn4:
 				// m.setBody("4");
@@ -134,10 +133,10 @@ public class ButtonsActivity extends AChatActivity {
 					showToast("信息发送失败");
 				}
 				if (vibrator_open)
-					vibrator.vibrate(new long[] { 100, 200, 100, 200, 100, 200,
-							100, 200 }, -1);
-				
-				play(R.raw.audio4);
+					vibrator.vibrate(new long[] { 150, 200, 150, 200, 150, 200,
+							150, 200 }, -1);
+				if (audio_open)
+					play(R.raw.audio4);
 				break;
 			case R.id.btn5:
 				// m.setBody("5");
@@ -148,10 +147,10 @@ public class ButtonsActivity extends AChatActivity {
 					showToast("信息发送失败");
 				}
 				if (vibrator_open)
-					vibrator.vibrate(new long[] { 100, 200, 100, 200, 100, 200,
-							100, 200, 100, 200 }, -1);
-				
-				play(R.raw.audio5);
+					vibrator.vibrate(new long[] { 150, 200, 150, 200, 150, 200,
+							150, 200, 150, 200 }, -1);
+				if (audio_open)
+					play(R.raw.audio5);
 				break;
 			case R.id.btn6:
 				// m.setBody("6");
@@ -162,10 +161,10 @@ public class ButtonsActivity extends AChatActivity {
 					showToast("信息发送失败");
 				}
 				if (vibrator_open)
-					vibrator.vibrate(new long[] { 100, 200, 100, 200, 100, 200,
-							100, 200, 100, 200, 100, 200 }, -1);
-				
-				play(R.raw.audio6);
+					vibrator.vibrate(new long[] { 150, 200, 150, 200, 150, 200,
+							150, 200, 150, 200, 150, 200 }, -1);
+				if (audio_open)
+					play(R.raw.audio6);
 				break;
 			}
 		}
@@ -391,31 +390,31 @@ public class ButtonsActivity extends AChatActivity {
 	}
 
 	public void play(int id) {
-//		int byteread = 0;
-//		byte[] buf = new byte[4096];
-//		FileInputStream inStream = null;
-//
-//		Resources res = getResources();
-//		AssetFileDescriptor fd = res.openRawResourceFd(R.raw.audio1);
-//
-//		try {
-//			inStream = fd.createInputStream();
-//		} catch (IOException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-//
-//		try {
-//			while ((byteread = inStream.read(buf)) != -1) {
-//				// do something
-//			}
-//		} catch (IOException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-		
-		//String file = "//sdcard//testring.wav";
-		//String tag = "22";
+		// int byteread = 0;
+		// byte[] buf = new byte[4096];
+		// FileInputStream inStream = null;
+		//
+		// Resources res = getResources();
+		// AssetFileDescriptor fd = res.openRawResourceFd(R.raw.audio1);
+		//
+		// try {
+		// inStream = fd.createInputStream();
+		// } catch (IOException e) {
+		// // TODO Auto-generated catch block
+		// e.printStackTrace();
+		// }
+		//
+		// try {
+		// while ((byteread = inStream.read(buf)) != -1) {
+		// // do something
+		// }
+		// } catch (IOException e) {
+		// // TODO Auto-generated catch block
+		// e.printStackTrace();
+		// }
+
+		// String file = "//sdcard//testring.wav";
+		// String tag = "22";
 		byte[] buffer = null;
 		AudioTrack at = null;
 		int pcmlen = 0;
@@ -424,7 +423,7 @@ public class ButtonsActivity extends AChatActivity {
 			Resources res = getResources();
 			AssetFileDescriptor fd = res.openRawResourceFd(id);
 			FileInputStream fis = fd.createInputStream();
-			
+
 			buffer = new byte[1024 * 1024 * 2];// 2M
 			int len = fis.read(buffer);
 			pcmlen = 0;

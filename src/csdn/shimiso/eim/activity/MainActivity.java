@@ -67,7 +67,7 @@ public class MainActivity extends ActivitySupport {
 
 	@Override
 	protected void onResume() {
-		// 注册广播接收器
+		// 动态方式注册广播接收器
 		IntentFilter filter = new IntentFilter();
 		// 好友请求
 		filter.addAction(Constant.ROSTER_SUBSCRIPTION);
@@ -210,6 +210,7 @@ public class MainActivity extends ActivitySupport {
 				adapter.notifyDataSetChanged();
 			} else if (Constant.NEW_MESSAGE_ACTION.equals(action)) {
 				// 添加小气泡
+				// by alan, 消息的入口处，应该是这里了
 				adapter.notifyDataSetChanged();
 			} else if (Constant.ACTION_RECONNECT_STATE.equals(action)) {
 				boolean isSuccess = intent.getBooleanExtra(
